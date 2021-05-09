@@ -5,18 +5,18 @@ import numpy as np
 
 class CountVectorizer:
 
-    def __init__(self, stop_words, max_features = None):
+    def __init__(self, stop_words, max_features=None):
         self.vocabularies = []
         self.stop_words = stop_words
-        self.max_features=max_features
+        self.max_features = max_features
         pass
 
     def fit(self, raw_documents: np.ndarray, y=None):
         raw_documents_all_in_1 = ' '.join(raw_documents)
-        all_words = np.array(self.text_process(raw_documents_all_in_1), dtype=str)
+        all_words = np.array(self.text_process(raw_documents_all_in_1), dtype=object)
         unique, counts = np.unique(all_words, return_counts=True)
-        bag_of_words = np.array(list(dict(zip(unique, counts)).items()))
-        self.vocabularies = bag_of_words[bag_of_words[:, 1].astype(np.int).argsort()]
+        bag_of_words = np.transpose(np.array([unique, counts], dtype=object))
+        self.vocabularies = bag_of_words[bag_of_words[:, 1].argsort()]
         self.vocabularies = self.vocabularies[::-1]
         if self.max_features is not None:
             self.vocabularies = self.vocabularies[:self.max_features]
