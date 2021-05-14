@@ -4,3 +4,5 @@ __pycache__
 01-NLP (Natural Language Processing) with Python.ipynb
 submission.csv
 A3.html
+.DS_Store
+submission_final.csv
