@@ -1,6 +1,7 @@
 
 # Introduction
 The experiment aims to implement multinomial Naïve Bayesian algorithms from scratch, and try to modify the algorithm to get better performance.
+*Ask my lecturers why we are not allowed to use pandas to manipulate data!!!!*
 
 # Implementation
 The project is divided into three parts:
